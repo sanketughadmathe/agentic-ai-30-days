@@ -8,6 +8,7 @@ dependencies = [
     "chromadb>=1.4.0",
     "langchain>=1.0.4",
     "langchain-google-genai>=2.1.5",
+    "langchain-mcp-adapters>=0.2.1",
     "langchain-openai>=1.0.2",
     "langchain-tavily>=0.2.13",
     "pip>=25.3",
