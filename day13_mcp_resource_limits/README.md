@@ -17,3 +17,18 @@ denial-of-service against its own system.
 
 Limits turn infinite behavior into
 bounded behavior.
+
+# Code
+```bash
+docker build -t mcp-server-limited .
+
+docker run -p 3333:3333 \
+  --name mcp-limited \
+  --memory="128m" \
+  --memory-swap="128m" \
+  --cpus="0.5" \
+  --pids-limit=50 \
+  --restart=unless-stopped \
+  mcp-server-limited
+
+```

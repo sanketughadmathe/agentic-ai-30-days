@@ -11,6 +11,12 @@ Key Concepts:
 - Agents connect over a stable interface
 - Execution environment becomes predictable
 
+# Code
+```bash
+docker build -t mcp-server .
+docker run -p 3333:3333 mcp-server
+```
+
 Architecture Visualization:
 ```
 ┌────────────────────────────────────┐
