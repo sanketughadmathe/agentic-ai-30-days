@@ -58,6 +58,10 @@ if __name__ == "__main__":
     input_state = {"message": "Hello, LangGraph!"}
 
     output = graph.invoke(input_state)
+    # Save as PNG
+    graph.get_graph().draw_mermaid_png(
+        output_file_path="day01_hello_langgraph/hello_langgraph.png"
+    )
 
     print("Final Output:")
     print(output["response"])

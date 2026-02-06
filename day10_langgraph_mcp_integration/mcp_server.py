@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime
 
 from mcp.server.fastmcp import FastMCP
 
@@ -11,7 +11,9 @@ def get_utc_time() -> str:
     Return current UTC time.
     Read-only, safe utility tool.
     """
-    return datetime.now(timezone.utc).isoformat()
+    from zoneinfo import ZoneInfo
+
+    return datetime.now(ZoneInfo("Asia/Kolkata")).isoformat()
 
 
 if __name__ == "__main__":

@@ -26,10 +26,16 @@ MAX_ITERATIONS = 2
 # -----------------------------
 # 2. LLM
 # -----------------------------
+# llm = ChatOpenAI(
+#     model="mistralai/devstral-2512:free",
+#     base_url="https://openrouter.ai/api/v1",
+#     api_key=os.getenv("OPENROUTER_API_KEY"),
+#     temperature=0,
+# )
 llm = ChatOpenAI(
-    model="mistralai/devstral-2512:free",
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
+    model="gemini-2.5-flash",
+    api_key=os.getenv("GEMINI_API_KEY"),
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
     temperature=0,
 )
 

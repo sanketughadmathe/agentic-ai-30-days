@@ -25,17 +25,29 @@ QUALITY_THRESHOLD = 7
 # -----------------------------
 # 2. LLMs (separate roles)
 # -----------------------------
+# actor_llm = ChatOpenAI(
+#     model="mistralai/devstral-2512:free",
+#     base_url="https://openrouter.ai/api/v1",
+#     api_key=os.getenv("OPENROUTER_API_KEY"),
+#     temperature=0.7,
+# )
 actor_llm = ChatOpenAI(
-    model="mistralai/devstral-2512:free",
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
+    model="gemini-2.5-flash",
+    api_key=os.getenv("GEMINI_API_KEY"),
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
     temperature=0.7,
 )
 
+# evaluator_llm = ChatOpenAI(
+#     model="mistralai/devstral-2512:free",
+#     base_url="https://openrouter.ai/api/v1",
+#     api_key=os.getenv("OPENROUTER_API_KEY"),
+#     temperature=0,
+# )
 evaluator_llm = ChatOpenAI(
-    model="mistralai/devstral-2512:free",
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
+    model="gemini-2.5-flash",
+    api_key=os.getenv("GEMINI_API_KEY"),
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
     temperature=0,
 )
 

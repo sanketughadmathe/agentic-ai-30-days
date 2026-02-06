@@ -1,6 +1,6 @@
 import os
-from typing import Annotated, List, Literal, TypedDict
 from operator import add
+from typing import Annotated, List, Literal, TypedDict
 
 from dotenv import load_dotenv
 from langchain_core.messages import AIMessage, HumanMessage
@@ -37,10 +37,11 @@ tool_node = ToolNode(tools)
 # -----------------------------
 # 3. LLM
 # -----------------------------
+
 llm = ChatOpenAI(
-    model="mistralai/devstral-2512:free",
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
+    model="gemini-2.5-flash",
+    api_key=os.getenv("GEMINI_API_KEY"),
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
     temperature=0,
 )
 

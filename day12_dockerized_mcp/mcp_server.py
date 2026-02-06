@@ -1,5 +1,6 @@
-from fastmcp import FastMCP
 from datetime import datetime
+
+from fastmcp import FastMCP
 
 mcp = FastMCP("dockerized-mcp")
 
@@ -10,7 +11,9 @@ def get_utc_time() -> str:
     Read-only utility tool.
     Safe to expose from a container.
     """
-    return datetime.utcnow().isoformat()
+    from zoneinfo import ZoneInfo
+
+    return datetime.now(ZoneInfo("Asia/Kolkata")).isoformat()
 
 
 if __name__ == "__main__":

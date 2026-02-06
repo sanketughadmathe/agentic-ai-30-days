@@ -1,9 +1,11 @@
+import asyncio
 import os
-from typing import List, Literal, TypedDict
+import sys
+from typing import List, TypedDict
 
 from dotenv import load_dotenv
 from langchain_core.messages import AIMessage, HumanMessage
-from langchain_mcp_adapters.client import MCPClient
+from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt import ToolNode
@@ -22,9 +24,20 @@ class AgentState(TypedDict):
 # -----------------------------
 # 2. MCP client
 # -----------------------------
-mcp_client = MCPClient(command=["python", "mcp_server_audited.py"])
+# Use MultiServerMCPClient (stdio transport) similar to day10 example
+mcp_client = MultiServerMCPClient(
+    {
+        "utility-mcp": {
+            "transport": "stdio",
+            "command": sys.executable,
+            "args": ["mcp_server_audited.py"],
+            "cwd": os.path.dirname(__file__),
+        }
+    }
+)
 
-tools = mcp_client.get_tools()
+# Fetch tools synchronously at startup for simplicity.
+tools = asyncio.run(mcp_client.get_tools())
 tool_node = ToolNode(tools)
 
 
@@ -33,11 +46,11 @@ tool_node = ToolNode(tools)
 # -----------------------------
 
 llm = ChatOpenAI(
-    model="mistralai/devstral-2512:free",
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY"),
+    model="gemini-2.5-flash",
+    api_key=os.getenv("GEMINI_API_KEY"),
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
     temperature=0,
-)
+).bind_tools(tools)
 
 
 # -----------------------------
@@ -51,7 +64,7 @@ def agent(state: AgentState) -> AgentState:
 # -----------------------------
 # 5. Routing logic
 # -----------------------------
-def should_call_tool(state: AgentState) -> Literal["tools", END]:
+def should_call_tool(state: AgentState) -> str:
     last_msg = state["messages"][-1]
     if isinstance(last_msg, AIMessage) and last_msg.tool_calls:
         return "tools"
