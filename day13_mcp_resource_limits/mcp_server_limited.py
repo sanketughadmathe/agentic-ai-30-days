@@ -1,6 +1,6 @@
 import signal
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 from fastmcp import FastMCP
 
@@ -27,9 +27,7 @@ signal.signal(signal.SIGALRM, timeout_handler)
 @mcp.tool
 def get_utc_time() -> str:
     """Get current UTC time - fast and safe"""
-    from zoneinfo import ZoneInfo
-
-    return datetime.now(ZoneInfo("Asia/Kolkata")).isoformat()
+    return datetime.now(timezone.utc).isoformat()
 
 
 # -------------------------

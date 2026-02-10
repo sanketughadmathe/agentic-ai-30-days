@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from fastmcp import FastMCP
 
@@ -11,9 +11,7 @@ def get_utc_time() -> str:
     Read-only utility tool.
     Safe to expose from a container.
     """
-    from zoneinfo import ZoneInfo
-
-    return datetime.now(ZoneInfo("Asia/Kolkata")).isoformat()
+    return datetime.now(timezone.utc).isoformat()
 
 
 if __name__ == "__main__":
