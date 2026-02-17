@@ -1,0 +1,20 @@
+{
+  "b365f35b751b2a8593f303870360a03e": {
+    "answer": "ReAct, which stands for \"Reasoning and Acting,\" is a prompting technique for large language models (LLMs) that combines reasoning traces with task-specific actions. This approach allows LLMs to dynamically generate, maintain, and adjust action plans, perform reasoning, and handle exceptions, often by interacting with external tools and environments.",
+    "question": "What is ReAct?",
+    "created_at": "2026-02-17T21:26:51.925805",
+    "expires_at": "2026-02-18T21:26:51.925805",
+    "model": "gemini-2.5-flash",
+    "cache_key": "b365f35b751b2a8593f303870360a03e",
+    "hit_count": 0
+  },
+  "d61224da03a21a5047d53cafcd0f6b94": {
+    "answer": "Retrieval precision is improved by techniques that ensure the retrieved documents are highly relevant to the user's query. Key methods include precise query formulation, effective indexing, and advanced ranking algorithms that incorporate semantic understanding and contextual awareness.",
+    "question": "What improves retrieval precision?",
+    "created_at": "2026-02-17T21:26:48.794783",
+    "expires_at": "2026-02-18T21:26:48.794783",
+    "model": "gemini-2.5-flash",
+    "cache_key": "d61224da03a21a5047d53cafcd0f6b94",
+    "hit_count": 0
+  }
+}
