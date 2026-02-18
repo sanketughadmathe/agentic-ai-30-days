@@ -1,0 +1,60 @@
+{
+    "timestamp": "2026-02-18T18:34:14.675214",
+    "question": "What is ReAct?",
+    "retrieval_latency_ms": 40.997982025146484,
+    "num_candidates": 3,
+    "rerank_latency_ms": null,
+    "generation_latency_ms": 2463.845729827881,
+    "total_latency_ms": 2504.8489570617676,
+    "cache_hit": false,
+    "answer_length": 55,
+    "confidence": "HIGH",
+    "grounded": true,
+    "model_used": "gemini-2.5-flash",
+    "error": null
+}
+{
+    "timestamp": "2026-02-18T18:34:16.903285",
+    "question": "What improves retrieval precision?",
+    "retrieval_latency_ms": 56.74600601196289,
+    "num_candidates": 3,
+    "rerank_latency_ms": null,
+    "generation_latency_ms": 2170.267105102539,
+    "total_latency_ms": 2227.0188331604004,
+    "cache_hit": false,
+    "answer_length": 39,
+    "confidence": "HIGH",
+    "grounded": true,
+    "model_used": "gemini-2.5-flash",
+    "error": null
+}
+{
+    "timestamp": "2026-02-18T18:34:19.280139",
+    "question": "What is ReAct?",
+    "retrieval_latency_ms": 60.3487491607666,
+    "num_candidates": 3,
+    "rerank_latency_ms": null,
+    "generation_latency_ms": 2315.546989440918,
+    "total_latency_ms": 2375.900983810425,
+    "cache_hit": true,
+    "answer_length": 55,
+    "confidence": "HIGH",
+    "grounded": true,
+    "model_used": "gemini-2.5-flash",
+    "error": null
+}
+{
+    "timestamp": "2026-02-18T18:34:21.337208",
+    "question": "How does agent memory work?",
+    "retrieval_latency_ms": 65.2000904083252,
+    "num_candidates": 3,
+    "rerank_latency_ms": null,
+    "generation_latency_ms": 1991.6131496429443,
+    "total_latency_ms": 2056.8172931671143,
+    "cache_hit": false,
+    "answer_length": 49,
+    "confidence": "HIGH",
+    "grounded": true,
+    "model_used": "gemini-2.5-flash",
+    "error": null
+}
