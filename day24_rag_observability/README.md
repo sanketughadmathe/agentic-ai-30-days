@@ -44,32 +44,32 @@ Without observability, you're flying blind:
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                 RAG Pipeline                        │
-│                                                     │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐         │
-│  │Retrieval │→ │Generation│→ │  Answer  │         │
-│  └──────────┘  └──────────┘  └──────────┘         │
-│       ↓              ↓              ↓              │
-│  ┌──────────────────────────────────────┐          │
-│  │       RAGObserver                    │          │
-│  │  • Start/end span tracking           │          │
-│  │  • Latency measurement               │          │
-│  │  • Metrics persistence (JSONL)       │          │
-│  └──────────────────────────────────────┘          │
-│                     ↓                               │
-│  ┌──────────────────────────────────────┐          │
-│  │       rag_metrics.jsonl              │          │
-│  │  (timestamped metrics for analysis)  │          │
-│  └──────────────────────────────────────┘          │
-│                     ↓                               │
-│  ┌──────────────────────────────────────┐          │
-│  │       System Health Dashboard        │          │
-│  │  • Success rate                      │          │
-│  │  • Cache hit rate                    │          │
-│  │  • Latency percentiles (avg, P95)    │          │
-│  └──────────────────────────────────────┘          │
-└─────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────┐
+│                 RAG Pipeline                │
+│                                             │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
+│  │Retrieval │→ │Generation│→ │  Answer  │   │
+│  └──────────┘  └──────────┘  └──────────┘   │
+│       ↓              ↓              ↓       │
+│  ┌──────────────────────────────────────┐   │
+│  │       RAGObserver                    │   │
+│  │  • Start/end span tracking           │   │
+│  │  • Latency measurement               │   │
+│  │  • Metrics persistence (JSONL)       │   │
+│  └──────────────────────────────────────┘   │
+│                     ↓                       │
+│  ┌──────────────────────────────────────┐   │
+│  │       rag_metrics.jsonl              │   │
+│  │  (timestamped metrics for analysis)  │   │
+│  └──────────────────────────────────────┘   │
+│                     ↓                       │
+│  ┌──────────────────────────────────────┐   │
+│  │       System Health Dashboard        │   │
+│  │  • Success rate                      │   │
+│  │  • Cache hit rate                    │   │
+│  │  • Latency percentiles (avg, P95)    │   │
+│  └──────────────────────────────────────┘   │
+└─────────────────────────────────────────────┘
 ```
 
 ## Implementation Details
