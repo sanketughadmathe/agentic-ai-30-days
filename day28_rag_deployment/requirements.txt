@@ -1,0 +1,31 @@
+# FastAPI and server
+fastapi[standard]==0.132.0
+python-multipart==0.0.22
+
+# LangChain
+langchain==1.2.10
+langchain-openai==1.1.10
+langchain-community==0.4.1
+langchain-huggingface==1.2.0
+
+# ML/AI
+sentence-transformers==5.2.3
+faiss-cpu==1.13.2
+
+# Utilities
+pydantic==2.12.5
+python-dotenv==1.2.1
+email-validator==2.3.0
+
+
+#  + annotated-doc==0.0.4
+#  + dnspython==2.8.0
+#  + email-validator==2.3.0
+#  + fastapi==0.132.0
+#  + fastapi-cli==0.0.23
+#  + fastapi-cloud-cli==0.13.0
+#  + fastar==0.8.0
+#  + pydantic-extra-types==2.11.0
+#  + rich-toolkit==0.19.4
+#  + rignore==0.7.6
+#  + sentry-sdk==2.53.0

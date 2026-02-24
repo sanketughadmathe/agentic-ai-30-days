@@ -1,0 +1,28 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  rag-api:
+    build: .
+    container_name: rag-api
+    ports:
+      - "8001:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - TOKENIZERS_PARALLELISM=false
+    volumes:
+      - ./:/app
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - rag-network
+
+networks:
+  rag-network:
+    driver: bridge
