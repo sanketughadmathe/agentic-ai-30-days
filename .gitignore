@@ -212,3 +212,4 @@ __marimo__/
 uv.lock
 .DS_Store
 .vscode/settings.json
+uv.lock
