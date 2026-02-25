@@ -626,12 +626,6 @@ GEMINI_API_KEY=your_gemini_api_key
 TOKENIZERS_PARALLELISM=false
 ```
 
-## Learn More
-
-- [Self-RAG Paper](https://arxiv.org/abs/2310.11511) (Asai et al., 2023)
-- [Corrective RAG (CRAG)](https://arxiv.org/abs/2401.15884)
-- [Reflexion: Language Agents with Verbal Reinforcement Learning](https://arxiv.org/abs/2303.11366)
-
 ---
 
 **Key insight:**
