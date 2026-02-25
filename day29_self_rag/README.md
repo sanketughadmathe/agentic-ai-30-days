@@ -179,7 +179,7 @@ for iteration in range(max_iterations):
 ### Basic Usage
 
 ```python
-from day29_self_rag import self_rag
+from self_rag import self_rag
 
 response = self_rag(
     question="How does Self-RAG work?",
@@ -206,7 +206,7 @@ response = self_rag(
 ### Compare RAG Approaches
 
 ```python
-from day29_self_rag import compare_rag_approaches
+from self_rag import compare_rag_approaches
 
 compare_rag_approaches("What is ReAct?")
 
@@ -219,87 +219,150 @@ compare_rag_approaches("What is ReAct?")
 ## Sample Output
 
 ```
-==================================================================
-🔄 Self-RAG: How does Self-RAG work and why is it better?
-==================================================================
+🧪 TEST 1: Self-RAG with Iterative Improvement
+
+======================================================================
+🔄 Self-RAG: How does Self-RAG work and why is it better than regular RAG?
+======================================================================
+
 
 --- Iteration 1 ---
 📚 Context: 3 documents
-💡 Answer: Self-RAG adds a reflection mechanism...
+💡 Answer: Self-RAG works by adding a reflection mechanism where the model evaluates its own responses and iter...
 📊 Quality: good
-   Overall Score: 0.72
-   Relevance: 0.85
-   Completeness: 0.65
-   Grounding: 0.70
+   Overall Score: 0.70
+   Relevance: 0.60
+   Completeness: 0.50
+   Grounding: 1.00
+   ✨ New best score!
 
 🤔 Retrieval Decision: retrieve
-   Reasoning: Answer lacks detail on the iterative improvement process
-   📥 Retrieved 2 more docs for: 'Self-RAG iterative improvement process'
+   Reasoning: The current context only briefly mentions the reflection mechanism of Self-RAG but fails to explain the specific advantages or performance improvements it offers over standard RAG. To provide a complete answer, more information is needed regarding the comparative benefits, such as reduced hallucinations and improved factual accuracy.
+   📥 Retrieved 1 more docs for: 'Self-RAG vs regular RAG comparison'
+   📥 Retrieved 1 more docs for: 'advantages of Self-RAG over standard RAG'
 
 --- Iteration 2 ---
 📚 Context: 5 documents
-💡 Answer: Self-RAG is an advanced RAG pattern where the system...
-📊 Quality: excellent
-   Overall Score: 0.88
-   Relevance: 0.95
-   Completeness: 0.85
-   Grounding: 0.85
+💡 Answer: Self-RAG works by adding a reflection mechanism where the model evaluates its own responses and iter...
+📊 Quality: good
+   Overall Score: 0.80
+   Relevance: 1.00
+   Completeness: 0.70
+   Grounding: 1.00
    ✨ New best score!
 
-✅ Quality threshold met (0.88 >= 0.80)
+🤔 Retrieval Decision: retrieve
+   Reasoning: The current context provides a basic definition of Self-RAG's reflection mechanism but lacks specific details on its internal workings, such as the use of critique tokens, and does not explicitly list the comparative advantages over standard RAG, such as reduced hallucinations and improved factual accuracy.
+   📥 Retrieved 2 more docs for: 'how Self-RAG works critique tokens and retrieval tokens'
+   📥 Retrieved 0 more docs for: 'advantages of Self-RAG vs standard RAG'
 
-==================================================================
-✅ SELF-RAG COMPLETE
-==================================================================
+--- Iteration 3 ---
+📚 Context: 7 documents
+💡 Answer: Self-RAG works by adding a reflection mechanism where the model evaluates its own responses and iter...
+📊 Quality: good
+   Overall Score: 0.70
+   Relevance: 0.80
+   Completeness: 0.50
+   Grounding: 1.00
 
-❓ Question: How does Self-RAG work and why is it better?
+======================================================================
+✅ Final Answer (Score: 0.80)
+======================================================================
+
+======================================================================
+📝 SELF-RAG COMPLETE
+======================================================================
+
+❓ Question: How does Self-RAG work and why is it better than regular RAG?
 
 💡 Final Answer:
-   Self-RAG is an advanced RAG pattern where the system evaluates
-   and iteratively improves its own responses through self-reflection...
+   Self-RAG works by adding a reflection mechanism where the model evaluates its own responses and iteratively improves them. The provided context does not state why Self-RAG is better than regular RAG.
 
 📊 Final Evaluation:
-   Quality: excellent
-   Overall Score: 0.88
-   Relevance: 0.95
-   Completeness: 0.85
-   Grounding: 0.85
+   Quality: good
+   Overall Score: 0.80
+   Relevance: 1.00
+   Completeness: 0.70
+   Grounding: 1.00
 
 🔄 Improvement Journey:
-   Iteration 1: Score 0.72 (good)
-   Iteration 2: Score 0.88 (excellent)
+   Iteration 1: Score 0.70 (good)
+   Iteration 2: Score 0.80 (good)
+   Iteration 3: Score 0.70 (good)
 
-✨ Improvement: +0.16 (+22.2%)
-==================================================================
-```
+✨ Improvement: +0.10 (+14.3%)
+======================================================================
 
-## Comparison: Regular RAG vs Self-RAG
 
-```
-==================================================================
+🧪 TEST 2: Regular RAG vs Self-RAG Comparison
+
+======================================================================
 🔬 Comparing RAG Approaches
-==================================================================
+======================================================================
 Question: What is ReAct and how does it enable agentic behavior?
 
 1️⃣  Regular RAG (single-shot)
-------------------------------------------------------------------
-Answer: ReAct combines reasoning and acting in iterative loops.
-Score: 0.68
+----------------------------------------------------------------------
+Answer: ReAct combines reasoning and acting in iterative loops, which enables agents to dynamically adjust.
+Score: 0.70
 
 2️⃣  Self-RAG (iterative improvement)
-------------------------------------------------------------------
-Answer: ReAct is a framework that combines reasoning and acting
-in iterative loops, enabling agents to dynamically adjust their
-behavior based on observations from their environment...
-Score: 0.85
-Iterations: 2
-Improved: Yes
+----------------------------------------------------------------------
+Answer: ReAct combines reasoning and acting in iterative loops, which enables agents to dynamically adjust.
+Score: 0.80
+Iterations: 1
+Improved: No
 
 📊 Comparison
-------------------------------------------------------------------
-Score Improvement: +0.17
-Self-RAG is 25.0% better
-==================================================================
+----------------------------------------------------------------------
+Score Improvement: +0.10
+Self-RAG is 14.3% better
+
+
+🧪 TEST 3: Simple Question (Quick Convergence)
+
+======================================================================
+🔄 Self-RAG: What is reranking?
+======================================================================
+
+
+--- Iteration 1 ---
+📚 Context: 3 documents
+💡 Answer: Reranking is a process that improves retrieval precision by re-scoring candidates after initial retr...
+📊 Quality: excellent
+   Overall Score: 0.95
+   Relevance: 1.00
+   Completeness: 0.90
+   Grounding: 1.00
+   ✨ New best score!
+
+✅ Quality threshold met (0.95 >= 0.8)
+
+======================================================================
+✅ Final Answer (Score: 0.95)
+======================================================================
+
+======================================================================
+📝 SELF-RAG COMPLETE
+======================================================================
+
+❓ Question: What is reranking?
+
+💡 Final Answer:
+   Reranking is a process that improves retrieval precision by re-scoring candidates after initial retrieval, focusing on relevance.
+
+📊 Final Evaluation:
+   Quality: excellent
+   Overall Score: 0.95
+   Relevance: 1.00
+   Completeness: 0.90
+   Grounding: 1.00
+
+🔄 Improvement Journey:
+   Iteration 1: Score 0.95 (excellent)
+
+➡️  No improvement over initial answer
+======================================================================
 ```
 
 ## When to Use Self-RAG
@@ -547,7 +610,7 @@ def test_self_rag_improves():
 
 ## Files
 
-- `day29_self_rag.py` - Self-RAG implementation
+- `self_rag.py` - Self-RAG implementation
 
 ## Dependencies
 
